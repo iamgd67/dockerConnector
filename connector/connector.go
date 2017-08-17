@@ -102,7 +102,7 @@ func (con *Connector) handleChannels(chans <-chan ssh.NewChannel, container stri
 }
 
 func (con *Connector) handleChannel(channel ssh.Channel, requests <-chan *ssh.Request, container string) {
-    cmd := exec.Command("docker", "exec", "-i", "-t", container, "/bin/bash")
+    cmd := exec.Command("docker", "exec", "-i", "-t", container, "/bin/sh")
     
     closeChannel := func() {
         channel.Close()

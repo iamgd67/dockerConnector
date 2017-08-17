@@ -5,8 +5,8 @@ import (
     "log"
     "fmt"
     "database/sql"
+     "./connector"
 
-    "github.com/domeos/dockerConnector/connector"
     "github.com/codegangsta/cli"
     _ "github.com/go-sql-driver/mysql"
 )
@@ -69,7 +69,8 @@ func run(c *cli.Context) {
     errs := make(chan error)
     db, err := initDB(c)
     if err != nil {
-        log.Fatal("[Fatal] Connect to MySQL: ", err.Error())
+        log.Println("db wrong ignore")
+        //log.Fatal("[Fatal] Connect to MySQL: ", err.Error())
     }
     con, err := connector.New(c.String("ssh-addr"), c.String("server"), db, errs)
     if err != nil {

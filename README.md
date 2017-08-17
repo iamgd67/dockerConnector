@@ -1,4 +1,5 @@
 dockerConnector for DomeOS
+Only Compile in Linex!!!
 ===
 
 update 2015-06-01: 
